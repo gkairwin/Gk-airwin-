@@ -1,0 +1,7 @@
+CREATE TABLE public.owner_private_profile (user_id uuid PRIMARY KEY REFERENCES public.profiles(id) ON DELETE CASCADE, full_name text NOT NULL, title text NOT NULL, phone text NOT NULL, national_id text NOT NULL, photo_path text);
+GRANT SELECT ON public.owner_private_profile TO authenticated;
+GRANT ALL ON public.owner_private_profile TO service_role;
+ALTER TABLE public.owner_private_profile ENABLE ROW LEVEL SECURITY;
+CREATE POLICY owner_profile_read ON public.owner_private_profile FOR SELECT TO authenticated USING (user_id = auth.uid() AND EXISTS (SELECT 1 FROM public.user_roles r WHERE r.user_id = auth.uid() AND r.role = 'admin') AND EXISTS (SELECT 1 FROM public.profiles p WHERE p.id = auth.uid() AND NOT p.suspended));
+CREATE POLICY owner_file_read ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'owner-private' AND (storage.foldername(name))[1] = auth.uid()::text AND EXISTS (SELECT 1 FROM public.owner_private_profile o WHERE o.user_id = auth.uid()));
+CREATE POLICY owner_file_insert ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'owner-private' AND (storage.foldername(name))[1] = auth.uid()::text AND EXISTS (SELECT 1 FROM public.owner_private_profile o WHERE o.user_id = auth.uid()));

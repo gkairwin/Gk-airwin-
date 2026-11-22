@@ -1,0 +1,2 @@
+ALTER TABLE public.crypto_deposits ADD COLUMN payin_extra_id text;
+COMMENT ON COLUMN public.crypto_deposits.payin_extra_id IS 'NOWPayments destination tag or memo; required alongside the payment address when supplied by the provider';

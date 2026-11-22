@@ -1,0 +1,118 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790932719919,
+      "tag": "0000_admin_credit",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791007878312,
+      "tag": "0001_migration",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791007888189,
+      "tag": "0002_migration",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791274022408,
+      "tag": "0003_min_bet_and_cash_out_at",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793824642989,
+      "tag": "0004_idempotent_place_bet",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793877000699,
+      "tag": "0005_idempotent_queued_bets",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794089404886,
+      "tag": "0006_africa_manual_deposits",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1794350336135,
+      "tag": "0007_leo_private_support",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1794395396944,
+      "tag": "0008_nowpayments_deposits",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1794395873266,
+      "tag": "0009_crypto_destination_tags",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1794426108210,
+      "tag": "0010_account_suspension",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1794454911828,
+      "tag": "0011_secure_admin_and_chat_summary",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1794456943213,
+      "tag": "0012_private_owner_profile",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1794458424840,
+      "tag": "0013_secure_deposit_credit_signup_and_suspended_bets",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1794726051648,
+      "tag": "0014_private_chat_translations",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1794802293683,
+      "tag": "0015_refer_and_earn",
+      "breakpoints": true
+    }
+  ]
+}
