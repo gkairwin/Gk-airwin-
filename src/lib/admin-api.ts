@@ -22,7 +22,7 @@ const PERMANENT_ADMIN_API = "https://gk-airwin.lovable.app/api/public/admin";
 function endpoint() {
   if (typeof window === "undefined") return "/api/public/admin";
   const host = window.location.hostname;
-  return host === "localhost" || host === "127.0.0.1" || host.endsWith(".lovable.app") || host.endsWith(".lovableproject.com")
+  return `${window.location.origin}/api/public/admin`;
     ? `${window.location.origin}/api/public/admin`
     : PERMANENT_ADMIN_API;
 }

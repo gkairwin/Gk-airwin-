@@ -16,17 +16,48 @@ export function AppBar({
   profileAttention?: boolean;
 }) {
   return (
-    <div className="relative w-full bg-[#08090b]" style={{ aspectRatio: "1213 / 106" }}>
-      <img src="/gk-topbar.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
-      <button onClick={onAccount} aria-label="Nestlink" className="absolute left-[4%] top-0 h-full w-[24%]" />
-      <button onClick={onAdmin} aria-label="Control centre" className="absolute left-[30%] top-0 h-full w-[38%]" />
+    <div
+      className="relative flex h-[50px] w-full items-center justify-between overflow-hidden px-3 border-b border-white/5"
+      style={{
+        background: "linear-gradient(90deg, #5c0715 0%, #15060d 25%, #080d1a 50%, #060913 75%, #05070d 100%)",
+      }}
+    >
+      <div className="pointer-events-none absolute -left-4 -top-6 h-24 w-32 rounded-full bg-red-600/30 blur-xl" />
+
+      <button
+        onClick={onAccount}
+        className="relative z-10 flex items-center gap-1.5 rounded-full border border-red-500/50 bg-[#18090f]/90 px-3 py-1 shadow-[0_0_12px_rgba(239,68,68,0.25)] active:scale-95 transition-transform"
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+        <span className="text-[12px] font-black uppercase tracking-wider text-red-500">Nestlink</span>
+      </button>
+
+      <button
+        onClick={onAdmin}
+        className="relative z-10 flex items-center gap-1.5 active:scale-95 transition-transform"
+        aria-label="Control centre"
+      >
+        <svg className="h-5 w-5 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+          <path d="M2 12h20" />
+        </svg>
+        <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-cyan-400 bg-clip-text text-[13px] font-black tracking-wider text-transparent drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+          GLOBAL AVIATOR
+        </span>
+        <svg className="h-4 w-4 -rotate-45 text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.8)]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+        </svg>
+      </button>
+
       <Button
         variant="ghost"
         onClick={onDeposit}
         aria-label="Profile"
-        className={`absolute right-[2%] top-[14%] flex h-[72%] w-[20%] items-center justify-center gap-1 rounded-full border border-air-sky/60 bg-gradient-to-b from-[#292a31] to-[#08090b] p-0 text-[clamp(10px,3vw,15px)] font-extrabold text-white shadow-[0_0_12px_-2px_var(--color-air-sky)] hover:bg-[#08090b] hover:text-white [&_svg]:size-[1.1em] ${profileAttention ? "air-profile-attention" : ""}`}
+        className={`relative z-10 flex h-[32px] items-center gap-1 rounded-full border border-cyan-400/60 bg-gradient-to-b from-[#1b2230] to-[#0e131d] px-3 py-0 text-[12px] font-bold text-white shadow-[0_0_12px_rgba(34,211,238,0.35)] hover:bg-[#0e131d] hover:text-white ${profileAttention ? "air-profile-attention" : ""}`}
       >
-        <UserRound className={`h-[1.1em] w-[1.1em] text-air-sky ${profileAttention ? "air-profile-shake" : ""}`} />Profile
+        <UserRound className={`h-3.5 w-3.5 text-cyan-400 ${profileAttention ? "air-profile-shake" : ""}`} />
+        Profile
       </Button>
     </div>
   );
@@ -50,11 +81,26 @@ export function GameHeader({
   const money = useMoney();
 
   return (
-    <div className="relative flex items-center justify-between bg-[#08090b] py-1 pe-3">
-      <img src="/gk-logo.png" alt="Gk Airwin — One World. One Game." className="h-auto w-[62%] max-w-[400px]" />
-      <div className="flex shrink-0 flex-col items-end rounded-xl border border-air-green/40 bg-[#1e2025] px-3 py-1 shadow-[0_0_10px_-3px_var(--color-air-green)]">
-        <span className="text-[10px] font-semibold uppercase tracking-wide text-white/60">{money.currency}</span>
-        <span className="air-word-glow text-[16px] font-extrabold leading-tight text-air-green">{money.fmt(balance)}</span>
+    <div className="flex items-center justify-between bg-[#08090b] px-3 py-1.5">
+      <div className="flex items-center gap-2 rounded-lg border-t border-red-500/80 border-b border-white/5 bg-[#14151a] px-3 py-1.5 shadow-md">
+        <div className="flex items-center gap-1">
+          <span className="text-[17px] font-black italic tracking-tight text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]">
+            Gk Airwin
+          </span>
+          <svg className="h-3.5 w-3.5 text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.8)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        <span className="text-[9px] font-extrabold uppercase tracking-wider text-white/50">
+          — ONE WORLD. ONE GAME.
+        </span>
+      </div>
+
+      <div className="flex flex-col items-end rounded-xl border border-emerald-500/40 bg-[#14181f] px-3 py-1 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+        <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-400/70">{money.currency}</span>
+        <span className="air-word-glow text-[16px] font-black leading-tight text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">
+          {money.fmt(balance)}
+        </span>
       </div>
     </div>
   );
